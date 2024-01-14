@@ -14,7 +14,8 @@ ports:
 environments:
   - key: "SOFTWARE_VERSION_TAG"
     value: "latest-full"
-
+  - key: "ADMIN_PASSWORD"
+    value: "random_password"
 config:
   runTime: "dockerCompose"
   version: ""
@@ -23,7 +24,7 @@ config:
   buildDir: "/"
   runCommand: "docker-compose up -d"
   icon: ""
-  screenshot: "tika.jpg"
+  screenshot: "tika.png"
 lifeCycleConfig:
   preInstallCommand: "./scripts/preInstall.sh"
   postInstallCommand: "./scripts/postInstall.sh"

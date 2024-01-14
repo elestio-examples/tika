@@ -4,13 +4,13 @@
 
 Deploy Apache Tika server with CI/CD on Elestio
 
-<img src="tika.jpg" style='width: 100%;'/>
+<img src="tika.png" style='width: 100%;'/>
 <br/>
 <br/>
 
 # Once deployed ...
 
-You can open Apache Tika web UI here:
+You can open Apache Tika here:
 
     https://[CI_CD_DOMAIN]/
     Login: root
