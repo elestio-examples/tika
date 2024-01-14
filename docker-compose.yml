@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  ## Apache Tika Server
+  tika:
+    image: apache/tika:${SOFTWARE_VERSION_TAG}
+    # Override default so we can add configuration on classpath
+    entrypoint:
+      [
+        "/bin/sh",
+        "-c",
+        'exec java -cp "/customocr:/tika-server-standard-${TIKA_VERSION}.jar:/tika-extras/*',
+        org.apache.tika.server.core.TikaServerCli -h 0.0.0.0 $$0 $$@",
+      ]
+    # Kept command as example but could be added to entrypoint too
+    command: -c /tika-config.xml
+    restart: always
+    ports:
+      - "172.17.0.1:3355:9998"
+    volumes:
+      # Choose the configuration you want, or add your own custom one
+      # -  ./sample-configs/customocr/tika-config-inline.xml:/tika-config.xml
+      - ./sample-configs/customocr/tika-config-rendered.xml:/tika-config.xml
