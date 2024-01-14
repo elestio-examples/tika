@@ -6,7 +6,11 @@ ports:
     targetIP: "172.17.0.1"
     public: true
     path: "/"
-    isAuth: false
+    isAuth: true
+    login: "root"
+    password: "random_password"
+    loginTitle: "Apache Tika"
+
 environments:
   - key: "SOFTWARE_VERSION_TAG"
     value: "latest-full"
@@ -27,8 +31,3 @@ lifeCycleConfig:
   postBackupCommand: "./scripts/postBackup.sh"
   preRestoreCommand: "./scripts/preRestore.sh"
   postRestoreCommand: "./scripts/postRestore.sh"
-webUI:
-  - url: "https://[CI_CD_DOMAIN]"
-    label: "Apache Tika"
-    login: "[ADMIN_EMAIL]"
-    password: "[ADMIN_PASSWORD]"
